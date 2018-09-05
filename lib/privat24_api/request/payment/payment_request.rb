@@ -13,7 +13,7 @@ module Privat24Api
 
     # payment_id - order id of your shop
     def pay_on_privat_card(payment_id, card, amount, details, currency='UAH')
-      Request.new(card_args).send_data_for(:post, MOD, __method__.to_s) do |data|
+      Request.new(card_args).send_data_for(MOD, __method__.to_s) do |data|
         data.oper('cmt')
         data.wait('0')
         data.test('0')
@@ -28,7 +28,7 @@ module Privat24Api
 
     # payment_id - order id of your shop
     def pay_on_ua_card(payment_id, card, amount, b_name, b_crf, b_bic, details, currency='UAH')
-      Request.new(card_args).send_data_for(:post, MOD, __method__.to_s) do |data|
+      Request.new(card_args).send_data_for(MOD, __method__.to_s) do |data|
         data.oper('cmt')
         data.wait('0')
         data.test('0')
@@ -46,7 +46,7 @@ module Privat24Api
 
     # payment_id - order id of your shop
     def pay_on_visa_card(payment_id, card, amount, b_name, details, currency='UAH')
-      Request.new(card_args).send_data_for(:post, MOD, __method__.to_s) do |data|
+      Request.new(card_args).send_data_for(MOD, __method__.to_s) do |data|
         data.oper('cmt')
         data.wait('30')
         data.test('0')
@@ -61,7 +61,7 @@ module Privat24Api
     end
 
     def check_status_pay(id, ref)
-      Request.new(card_args).send_data_for(:post, MOD, __method__.to_s) do |data|
+      Request.new(card_args).send_data_for(MOD, __method__.to_s) do |data|
         data.oper('cmt')
         data.wait('0')
         data.test('0')
@@ -73,7 +73,7 @@ module Privat24Api
     end
 
     def pay_on_mobile(phone, amount)
-      Request.new(card_args).send_data_for(:post, MOD, __method__.to_s) do |data|
+      Request.new(card_args).send_data_for(MOD, __method__.to_s) do |data|
         data.oper('cmt')
         data.wait('0')
         data.test('0')
@@ -85,7 +85,7 @@ module Privat24Api
     end
 
     def pay_on_mobile_multiple(phones)
-      Request.new(card_args).send_data_for(:post, MOD, __method__.to_s) do |data|
+      Request.new(card_args).send_data_for(MOD, __method__.to_s) do |data|
         data.oper('cmt')
         data.wait('0')
         data.test('0')
@@ -99,7 +99,7 @@ module Privat24Api
     end
 
     def check_status_mobile(id)
-      Request.new(card_args).send_data_for(:post, MOD, __method__.to_s) do |data|
+      Request.new(card_args).send_data_for(MOD, __method__.to_s) do |data|
         data.oper('cmt')
         data.wait('0')
         data.test('0')
@@ -110,7 +110,7 @@ module Privat24Api
     end
 
     def send_sms(phone_from, phone_to, message)
-      Request.new(card_args).send_data_for(:post, MOD, __method__.to_s) do |data|
+      Request.new(card_args).send_data_for(MOD, __method__.to_s) do |data|
         data.oper('cmt')
         data.wait('0')
         data.test('0')

@@ -35,13 +35,13 @@ module Privat24Api
       'send_sms'               => 'sendsms'
     },
     'public' => {
-      'exchange_cash'       => 'pubinfo?exchange&coursid=5',
-      'exchange_non_cash'   => 'pubinfo?exchange&coursid=11',
-      'exchange'            => 'pubinfo?exchange&coursid=3',
+      'exchange_cash'       => 'pubinfo',
+      'exchange_non_cash'   => 'pubinfo',
+      'exchange'            => 'pubinfo',
       'exchange_archive'    => 'exchange_rates',
       'list_privat_offices' => 'pboffice',
-      'atm'                 => 'https://api.privatbank.ua/p24api/infrastructure?atm',
-      'tso'                 => 'https://api.privatbank.ua/p24api/infrastructure?tso'
+      'atm'                 => 'infrastructure',
+      'tso'                 => 'infrastructure'
     }
   }
 end

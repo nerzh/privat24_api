@@ -17,9 +17,5 @@ module Privat24Api
     def payment
       Privat24Api::PaymentRequest.new(args)
     end
-
-    def public
-      Privat24Api::PublicRequest.new(args)
-    end
   end
 end
