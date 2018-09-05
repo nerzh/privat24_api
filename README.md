@@ -30,7 +30,7 @@ Privat24Api.configure do |config|
   )
 
   config.cards << Privat24Api::Card.new(
-    card_num:          '55556666777788889999', 
+    card_num:          '5555666677778888', 
     merchant_id:       '78910',
     merchant_password: 'FdhshgdshdgsKJHD7GSHdgv8dd'
   )
