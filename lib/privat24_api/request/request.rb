@@ -11,7 +11,7 @@ module Privat24Api
       @merchant_id       = card_args[:merchant_id]
       @merchant_password = card_args[:merchant_password]
     end
-    
+
     def send_data_for(mod, met)
       builder = Nokogiri::XML::DocumentFragment.parse ""
       Nokogiri::XML::Builder.with(builder) do |xml|
@@ -20,13 +20,17 @@ module Privat24Api
 
       @data_value = builder.to_xml
 
-      send(mod, met)
+      Response.new( send(mod, met) )
     end
 
     private
 
     def send(mod, met)
-      RestClient.post(make_url(mod, met), unescape_xml(make_xml), :content_type => "text/xml").body
+      RestClient.post(
+        make_url(mod, met), 
+        unescape_xml(make_xml), 
+        content_type: 'text/xml'
+      ).body
     end
 
     def make_url(mod, met)

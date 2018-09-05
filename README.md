@@ -12,30 +12,44 @@ gem 'privat24_api'
 
 And then execute:
 
-    $ bundle
+$ bundle
 
 Or install it yourself as:
 
-    $ gem install privat24_api
+$ gem install privat24_api
 
 ## Usage
 
 ### CONFIGURE
 ```ruby
 Privat24Api.configure do |config|
-  config.cards << Privat24Api::Card.new(
-    card_num:          '1111222233334444', 
-    merchant_id:       '123456',
-    merchant_password: 'OdFgjdOskdnsKJHD7GSHdgv8dd'
-  )
+config.cards << Privat24Api::Card.new(
+card_num:          '1111222233334444', 
+merchant_id:       '123456',
+merchant_password: 'OdFgjdOskdnsKJHD7GSHdgv8dd'
+)
 
-  config.cards << Privat24Api::Card.new(
-    card_num:          '5555666677778888', 
-    merchant_id:       '78910',
-    merchant_password: 'FdhshgdshdgsKJHD7GSHdgv8dd'
-  )
+config.cards << Privat24Api::Card.new(
+card_num:          '5555666677778888', 
+merchant_id:       '78910',
+merchant_password: 'FdhshgdshdgsKJHD7GSHdgv8dd'
+)
 end
 ```
+### RUBY HASH, JSON AND XML RESPONSE
+```ruby
+response = Privat24Api.cards.first.info.balance()
+
+# ruby hash response
+response.to_hash
+
+# json response
+response.to_json
+
+# xml response
+response.to_xml
+```
+
 ### INFO METHODS
 ```ruby
 Privat24Api.cards.first.info.balance()
