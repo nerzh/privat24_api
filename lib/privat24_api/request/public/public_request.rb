@@ -1,9 +1,9 @@
 require "privat24_api/request/request"
 
 module Privat24Api
-  class PaymentRequest
+  class PublicRequest
 
-    MOD = 'payment'
+    MOD = 'public'
 
     attr_reader :card_args
 
@@ -13,7 +13,7 @@ module Privat24Api
 
     # payment_id - order id of your shop
     def pay_on_privat_card(payment_id, card, amount, details, currency='UAH')
-      Request.new(card_args).send_data_for(:post, MOD, __method__.to_s) do |data|
+      Request.new(card_args).send_data_for(:get, MOD, __method__.to_s) do |data|
         data.oper('cmt')
         data.wait('0')
         data.test('0')
@@ -27,7 +27,7 @@ module Privat24Api
     end
 
     # payment_id - order id of your shop
-    def pay_on_ua_card(payment_id, card, amount, b_name, b_crf, b_bic, details, currency='UAH')
+    def pay_on_ua_card(payment_id, card, amount, b_name, b_crf, details, currency='UAH')
       Request.new(card_args).send_data_for(:post, MOD, __method__.to_s) do |data|
         data.oper('cmt')
         data.wait('0')
@@ -45,7 +45,7 @@ module Privat24Api
     end
 
     # payment_id - order id of your shop
-    def pay_on_visa_card(payment_id, card, amount, b_name, details, currency='UAH')
+    def pay_on_visa_card(payment_id, card, amount, b_name, b_crf, details, currency='UAH')
       Request.new(card_args).send_data_for(:post, MOD, __method__.to_s) do |data|
         data.oper('cmt')
         data.wait('30')
@@ -60,7 +60,7 @@ module Privat24Api
       end
     end
 
-    def check_status_pay(id, ref)
+    def check_status_pay(payment_id, card, amount, b_name, b_crf, details, currency='UAH')
       Request.new(card_args).send_data_for(:post, MOD, __method__.to_s) do |data|
         data.oper('cmt')
         data.wait('0')
@@ -84,7 +84,7 @@ module Privat24Api
       end
     end
 
-    def pay_on_mobile_multiple(phones)
+    def pay_on_mobile(*phones)
       Request.new(card_args).send_data_for(:post, MOD, __method__.to_s) do |data|
         data.oper('cmt')
         data.wait('0')

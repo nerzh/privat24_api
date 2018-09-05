@@ -12,7 +12,7 @@ module Privat24Api
     end
 
     def balance
-      Request.new(card_args).send_data_for(MOD, 'balance') do |data|
+      Request.new(card_args).send_data_for(:post, MOD, __method__.to_s) do |data|
         data.oper('cmt')
         data.wait('0')
         data.payment(id: '')
@@ -21,14 +21,14 @@ module Privat24Api
       end
     end
 
-    def transaction_details(from, to)
-      Request.new(card_args).send_data_for(MOD, 'transaction_details') do |data|
+    def transaction_details(date_from, date_to)
+      Request.new(card_args).send_data_for(:post, MOD, __method__.to_s) do |data|
         data.oper('cmt')
         data.wait('0')
         data.test('0')
         data.payment(id: '') do
-          data.prop(name: 'sd', value: from)
-          data.prop(name: 'ed', value: to)
+          data.prop(name: 'sd',   value: date_from)
+          data.prop(name: 'ed',   value: date_to)
           data.prop(name: 'card', value: card_args[:card_num])
         end
       end

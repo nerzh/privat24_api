@@ -1,5 +1,6 @@
 require "privat24_api/request/info/info_request"
 require "privat24_api/request/payment/payment_request"
+require "privat24_api/request/public/public_request"
 
 module Privat24Api
   class Card
@@ -15,6 +16,10 @@ module Privat24Api
 
     def payment
       Privat24Api::PaymentRequest.new(args)
+    end
+
+    def public
+      Privat24Api::PublicRequest.new(args)
     end
   end
 end
