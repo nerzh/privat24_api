@@ -23,17 +23,17 @@ $ gem install privat24_api
 ### CONFIGURE
 ```ruby
 Privat24Api.configure do |config|
-config.cards << Privat24Api::Card.new(
-card_num:          '1111222233334444', 
-merchant_id:       '123456',
-merchant_password: 'OdFgjdOskdnsKJHD7GSHdgv8dd'
-)
+  config.cards << Privat24Api::Card.new(
+    card_num:          '1111222233334444', 
+    merchant_id:       '123456',
+    merchant_password: 'OdFgjdOskdnsKJHD7GSHdgv8dd'
+  )
 
-config.cards << Privat24Api::Card.new(
-card_num:          '5555666677778888', 
-merchant_id:       '78910',
-merchant_password: 'FdhshgdshdgsKJHD7GSHdgv8dd'
-)
+  config.cards << Privat24Api::Card.new(
+    card_num:          '5555666677778888', 
+    merchant_id:       '78910',
+    merchant_password: 'FdhshgdshdgsKJHD7GSHdgv8dd'
+  )
 end
 ```
 ### RUBY HASH, JSON AND XML RESPONSE
