@@ -2,8 +2,6 @@
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/privat24_api`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,7 +20,28 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### CONFIGURE
+```ruby
+Privat24Api.configure do |config|
+  config.cards << Privat24Api::Card.new(
+    card_num:          '1111222233334444', 
+    merchant_id:       '123456',
+    merchant_password: 'OdFgjdOskdnsKJHD7GSHdgv8dd'
+  )
+
+  config.cards << Privat24Api::Card.new(
+    card_num:          '55556666777788889999', 
+    merchant_id:       '78910',
+    merchant_password: 'FdhshgdshdgsKJHD7GSHdgv8dd'
+  )
+end
+```
+### INFO METHODS
+```ruby
+Privat24Api.cards.first.info.balance()
+
+Privat24Api.cards.first.info.transaction_details('01.09.2018', '25.09.2018')
+```
 
 ## Development
 
