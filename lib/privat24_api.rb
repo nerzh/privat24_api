@@ -1,4 +1,3 @@
-require 'builder'
 require 'nokogiri'
 require 'rest_client'
 require 'privat24_api/version'
