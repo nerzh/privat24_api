@@ -1,3 +1,4 @@
+require 'privat24_api/response/response'
 require "privat24_api/request/info/info_request"
 require "privat24_api/request/payment/payment_request"
 require "privat24_api/request/public/public_request"
