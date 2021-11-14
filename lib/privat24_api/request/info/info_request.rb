@@ -15,9 +15,10 @@ module Privat24Api
       Request.new(card_args).send_data_for(MOD, __method__.to_s) do |data|
         data.oper('cmt')
         data.wait('0')
-        data.payment(id: '')
-        data.prop(name: 'cardnum', value: card_args[:card_num])
-        data.prop(name: 'country', value: 'UA')
+        data.payment(id: '') do
+          data.prop(name: 'cardnum', value: card_args[:card_num])
+          data.prop(name: 'country', value: 'UA')
+        end
       end
     end
 
